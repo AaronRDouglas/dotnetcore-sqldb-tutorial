@@ -1,5 +1,6 @@
 ﻿using DotNetCoreSqlDb.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Caching.StackExchangeRedis;
 
@@ -10,8 +11,10 @@ builder.Logging.AddAzureWebAppDiagnostics();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<MyDatabaseContext>(options =>
-    options.UseSqlServer(("AZURE_SQL_CONNECTIONSTRING")));
+builder.Services.AddDbContext<SomeDbContext>(options =>
+{
+   options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_"SQL_CONNECTIONSTRING"));
+})
 builder.Services.AddStackExchangeRedisCache(options =>
     {
         options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
