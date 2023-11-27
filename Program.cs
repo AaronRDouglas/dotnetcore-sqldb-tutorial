@@ -9,12 +9,12 @@ builder.Logging.AddAzureWebAppDiagnostics();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MyDatabaseContext>(options =>
-                    options.useSqlServer(builder.configuration.GetConnectionString("AZURE_SQL_CONNECTION_STRING")));
-                    builder.Services.AddStackExchangeRedisCache(options =>
-                    {
-                        options.configuration = builder.configuration["AZURE_REDIS_CONNECTIONSTRING"];
-                        options.instancename = "SampleInstance";
-                    });
+    options.useSqlServer(builder.configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.configuration = builder.configuration["AZURE_REDIS_CONNECTIONSTRING"];
+        options.instancename = "SampleInstance";
+    });
 
 var app = builder.Build();
 
