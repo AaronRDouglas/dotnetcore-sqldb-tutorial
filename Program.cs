@@ -14,7 +14,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SomeDbContext>(options =>
 {
    options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_"SQL_CONNECTIONSTRING"));
-})
+});
 builder.Services.AddStackExchangeRedisCache(options =>
     {
         options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
