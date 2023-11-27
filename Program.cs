@@ -11,9 +11,9 @@ builder.Logging.AddAzureWebAppDiagnostics();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<SomeDbContext>(options =>
+builder.Services.AddDbContext<MyDatabaseContext>(options =>
 {
-   options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_"SQL_CONNECTIONSTRING"));
+   options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING"))
 });
 builder.Services.AddStackExchangeRedisCache(options =>
     {
