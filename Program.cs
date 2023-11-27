@@ -15,7 +15,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
     {
         options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
         options.InstanceName = "SampleInstance";
-    })
+    });
 
 var app = builder.Build();
 
