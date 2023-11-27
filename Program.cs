@@ -9,7 +9,7 @@ builder.Logging.AddAzureWebAppDiagnostics();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MyDatabaseContext>(options =>
-    options.useSqlServer(builder.configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+    options.UseSqlServer(builder.configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
 
 
 var app = builder.Build();
