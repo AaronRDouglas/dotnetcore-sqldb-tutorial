@@ -10,7 +10,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MyDatabaseContext>(options =>
                     options.useSqlServer(builder.configuration.GetConnectionString("AZURE_SQL_CONNECTION_STRING")));
-                    builder.Services.AddStackExchangeRedisCache(options ==>
+                    builder.Services.AddStackExchangeRedisCache(options =>
                     {
                         options.configuration = builder.configuration["AZURE_REDIS_CONNECTIONSTRING"];
                         options.instancename = "SampleInstance";
